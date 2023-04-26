@@ -18,7 +18,7 @@ const SettingsScreen = () => {
     }));
     setKeyInput('');
     setValueInput('');
-    saveMyList();
+    // saveMyList();
   };
   const removeEntry = (key) => {
     const newSettingsList = { ...settings };
@@ -28,6 +28,10 @@ const SettingsScreen = () => {
   useEffect(() => {
     loadMyList();
   }, []);
+  useEffect(() => {
+    if(settings != null)
+    {saveMyList();}
+  }, [settings]);
 
   const loadMyList = async () => {
     try {
